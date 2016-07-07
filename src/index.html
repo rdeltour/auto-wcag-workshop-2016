@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Image credits:
+- "The Amazing Spider-Man"
+  By Waito-chan – CC BY-NC-ND 3.0
+  http://waito-chan.deviantart.com/art/The-Amazing-Spider-Man-553552072
+- "Rule 63-The Flash"
+  by MajinNeda – CC BY-NC-ND 3.0
+  http://www.deviantart.com/art/Rule-63-The-Flash-409739548
+- "DareDevil"
+  by Lyos-Scaim – CC BY-NC-ND 3.0
+  http://lyos-scaim.deviantart.com/art/Daredevil-527000589
+- "Dr. Manhattan is thinking"
+  by Sgt-Spankey – CC BY-ND 3.0
+  http://sgt-spankey.deviantart.com/art/Dr-Manhattan-is-thinking-105528095
+- "Golden Age Batman - The Caped Crusader"
+  by AgentSAMa – CC BY-SA 3.0
+  http://agentsama.deviantart.com/art/Golden-Age-Batman-The-Caped-Crusader-316070403
+ -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>EPUB Accessibility</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section data-bespoke-backdrop="cover" class="heading cover--content" style="">
+        <div class="heading__content">
+          <h1>
+            <span>EPUB Accessibility</span>
+          </h1>
+          <p>Romain Deltour – DAISY<br/>
+             Auto-WCAG Workshop, July 2016</p>
+        </div>
+      </section>
+      
+      <section>
+        <h2 class="bullet">A brief history</h2>
+        <!-- <div /> -->
+        <ol class="timeline">
+          <li><time>1999</time> OEBPS</li>
+          <li><time>2001</time> OEBPS 1.1</li>
+          <li><time>2002</time> OEBPS 2.2</li>
+          <li><time>2005</time> EPUB begins</li>
+          <li><time>2007</time> EPUB 2.0</li>
+          <li><time>2010</time> EPUB 2.0.1</li>
+          <li><time>2011</time> EPUB 3</li>
+          <li><time>2014</time> EPUB 3.0.1</li>
+          <li><time>2016</time> EPUB 3.1</li>
+        </ol>
+
+        <p class="centered bullet important">Focus on <b>accessibility</b>. <br/>Convergence with the <b>web</b>.</p>
+        <p class="centered bullet important">Future: <a href="http://idpf.org/news/world-wide-web-consortium-w3c-and-international-digital-publishing-forum-0" style="display: inline;">IDPF + W3C merger</a>?</p>
+      </section>
+
+
+      <section data-bespoke-backdrop="memes">
+      <h2 style="color: #333;">@idpfmemes <span style="font-size: 1.5em; color: red;">♥</span> @w3cmemes</h2>
+      <img src="images/idpf-memes.jpg" alt="">
+      </section>
+
+      <section>
+        <h2>So, What is EPUB?</h2>
+        <p class="bullet">A <b>distribution</b> and <b>interchange</b> format standard for digital publications and documents, developped by <b>IDPF</b>.</p>
+        <blockquote class="bullet">A (static) website in a ZIP</blockquote>
+      </section>
+
+      <section class="components--content">
+        <ul class="list--unstyled">
+          <li class="bullet">XHTML documents <b class="bullet">+ Navigation</b></li>
+          <li class="bullet">CSS</li>
+          <li class="bullet">Other Resources</li>
+          <li class="bullet"><b>Manifest</b></li>
+          <li class="bullet">mimetype<br/>META-INF/container.xml</li>
+        </ul>
+      </section>
+
+      <section data-bespoke-backdrop="terminal" class="terminal--content">
+        <pre>
+<span class="terminal--c2">$</span><span class="terminal--c1"> unzip -l foo.epub</span>
+
+Archive:  foo.epub
+  Length     Date   Time    Name
+ <span class="terminal--c2">--------    ----   ----    ----</span>
+       20  04-20-16 10:02   <span class="terminal--c3">mimetype</span>
+      952  04-20-16 10:02   <span class="terminal--c3">EPUB/1-cover.xhtml</span>
+      685  04-20-16 10:02   <span class="terminal--c3">EPUB/2-titlepage.xhtml</span>
+     3462  04-20-16 10:02   <span class="terminal--c3">EPUB/3-chap1.xhtml</span>
+     1736  04-20-16 10:02   <span class="terminal--c3">EPUB/4-chap2.xhtml</span>
+     4507  03-18-16 22:36   <span class="terminal--c3">EPUB/css/styles.css</span>
+   139681  03-18-16 23:44   <span class="terminal--c3">EPUB/images/cover.jpg</span>
+     3692  11-30-15 14:37   <span class="terminal--c3">EPUB/images/header.png</span>
+    28599  11-30-15 14:40   <span class="terminal--c3">EPUB/images/logo.png</span>
+    44086  12-01-15 13:04   <span class="terminal--c3">EPUB/image/table.png</span>
+     5291  04-20-16 10:02   <span class="terminal--c3">EPUB/package.opf</span>
+      236  04-20-16 10:02   <span class="terminal--c3">META-INF/container.xml</span>
+ <span class="terminal--c2">--------                   -------</span>
+   232947                   12 files
+        </pre>
+      </section>
+
+      <section class="bullet--replace">
+        <h2>A family of specifications</h2>
+        <blockquote>One spec to rule them all</blockquote>
+        <a href="http://www.idpf.org/epub/31/spec/epub-spec.html">http://www.idpf.org/epub/31/spec/epub-spec.html</a>
+        <ul class="bullet">
+          <li style="visibility: hidden"></li>
+          <li>EPUB Open Container Format (OCF)</li>
+          <li>EPUB Publications</li>
+          <li>EPUB Content Documents (incl. Navigation Document)</li>
+          <li>EPUB Media Overlays</li>
+        </ul>
+        <ul class="bullet">
+          <li><span class="added">EPUB Specification</span></li>
+          <li>EPUB Open Container Format (OCF)</li>
+          <li>EPUB <del>Publication</del> <span class="added">Package (incl. Navigation Document)</span></li>
+          <li>EPUB Content Documents</li>
+          <li>EPUB Media Overlays</li>
+        </ul>
+      </section>
+
+      <section data-bespoke-backdrop="a11y" class="a11y--content">
+      <h2>EPUB accessibility primer<br/>(to become an a11y superhero)</h2>
+      </section>
+
+      <section data-bespoke-backdrop="spiderman" class="superhero--content">
+        <h2 style="margin-top: -350px;"><span class="superhero__heading__number"># 1</span> Structure and semantics </h2>
+        <figure class="superhero superhero--left">        
+          <img src="images/spiderman.png" alt="The Spiderman">
+          <figcaption><p class="speech-bubble speech-bubble--right">With great<br/><b>STRUCTURE</b><br/>comes great <b>ACCESSIBILITY</b></p></figcaption>
+        </figure>
+      </section>
+
+      <section class="slide--code bullet--replace a11y--content">
+        <h3>HTML5 native semantics</h3>
+        <pre class="bullet sample"><code>&lt;<b>section</b>>
+  &lt;<b>h1</b>>SuperHeroes&lt;/<b>h1</b>>
+  &lt;<b>section</b>>
+    &lt;<b>h1</b>>Spiderman&lt;/<b>h1</b>>
+    &lt;p>A web expert!&lt;/p>
+  &lt;/<b>section</b>>
+  (...)
+&lt;/<b>section</b>>
+</code></pre>
+        <pre class="bullet sample"><code>&lt;<b>section</b>>
+  &lt;<b>h1</b>>SuperHeroes&lt;/<b>h1</b>>
+  &lt;<b>section</b>>
+    <span class="highlight">&lt;<b>h1</b>>Spiderman&lt;/<b>h1</b>></span><span style="line-height: 0.8em">❌</span>
+    &lt;p>A web expert!&lt;/p>
+  &lt;/<b>section</b>>
+  (...)
+&lt;/<b>section</b>>
+</code></pre>
+        <pre class="bullet sample"><code>&lt;<b>section</b>>
+  &lt;<b>h1</b>>SuperHeroes&lt;/<b>h1</b>>
+  &lt;<b>section</b>>
+    <span class="highlight">&lt;<b>h2</b>>Spiderman&lt;/<b>h2</b>></span><span style="line-height: 0.8em; color: green">✔︎</span>
+    &lt;p>A web expert!&lt;/p>
+  &lt;/<b>section</b>>
+  (...)
+&lt;/<b>section</b>>
+</code></pre>
+      </section>
+
+      <section class="slide--code bullet--replace a11y--content">
+        <h3>Semantic inflections</h3>
+        <pre class="bullet sample"><code>&lt;p>Attendees of conferences have the opportunity
+  to discuss cool topics while enjoying
+  frosty or hot beverages
+  <span class="highlight">&lt;a href="#note-bev" <b>epub:type="noteref"</b>>1&lt;/a></span>.
+&lt;/p>
+<div style="visibility: hidden">
+  ...
+
+&lt;<b>aside</b> id="note-bev" <b>epub:type="footnote"</b>>
+  &lt;p>I usually favor beer over coffee, but YMMV.&lt;/p>
+&lt;/<b>aside</b>></div></code></pre>
+        <pre class="bullet sample"><code>&lt;p>Attendees of conferences have the opportunity
+  to discuss cool topics while enjoying
+  frosty or hot beverages
+  &lt;a href="#note-bev" <b>epub:type="noteref"</b>>1&lt;/a>.
+&lt;/p>
+
+  ...
+
+<span class="highlight">&lt;<b>aside</b> id="note-bev" <b>epub:type="footnote"</b>>
+  &lt;p>I usually favor beer over coffee, but YMMV.&lt;/p>
+&lt;/<b>aside</b>></code></pre></span>
+      </section>
+
+      <section data-bespoke-backdrop="flash" class="superhero--content">
+      <h2 class="superhero__heading"><span class="superhero__heading__number"># 2</span>Navigation</h2>
+        <figure class="superhero superhero--right">
+          <img src="images/flash.png" alt="The Flash girl">
+          <figcaption><p class="speech-bubble speech-bubble--left">I can get there...<br/>and I can get there <b>fast</b>!</p></figcaption>
+        </figure>
+      </section>
+
+      <section class="slide--code a11y--content">
+        <h3>Table of Contents</h3>
+        <pre class="bullet--highlight sample"><code>&lt;<span class="bullet"><b>nav</b> epub:type="toc"</span>>
+  &lt;ol>
+    &lt;li>
+      &lt;a href="chap1.xhtml">Super Heroes&lt;/a>
+      &lt;ol>
+        &lt;li>
+          &lt;a href="chap1.xhtml#sec-1.1">The Marvel Universe&lt;/a>
+          &lt;ol <span class="bullet">hidden=""</span>>
+            &lt;li>
+              &lt;a href="chap1.xhtml#sec-1.1.1">Spiderman&lt;/a>
+            &lt;/li>
+          &lt;/ol>
+         &lt;/li>
+       &lt;/ol>
+     &lt;/li>
+  &lt;/ol>
+&lt;/<b>nav</b>>
+</code></pre>
+      </section>
+
+      <section class="slide--code a11y--content">
+        <h3>Page List</h3>
+        <pre class="bullet sample"><code>&lt;span <span class="highlight">epub:type="pagebreak"</span> id="p24" title="24"/>
+</code></pre>
+        <pre class="bullet sample"><code>&lt;<b>nav</b> <span class="highlight">epub:type="page-list"</span>>
+    &lt;h2>Pagebreaks of the print version&lt;/h2>
+    &lt;<b>ol</b>>
+        &lt;<b>li</b>>&lt;a href="ch1.xhtml#p1">1&lt;/a>&lt;/<b>li</b>>
+        &lt;<b>li</b>>&lt;a href="ch1.xhtml#p2">2&lt;/a>&lt;/<b>li</b>> 
+        …
+        &lt;<b>li</b>>&lt;a href="ch42.xhtml#p72">72&lt;/a>&lt;/<b>li</b>>
+        &lt;<b>li</b>>&lt;a href="ch42.xhtml#p73">73&lt;/a>&lt;/<b>li</b>>
+        … 
+    &lt;/<b>ol</b>>
+&lt;/<b>nav</b>>
+</code></pre>
+      </section>
+
+      <section data-bespoke-backdrop="daredevil" class="superhero--content">
+        <h2 class="superhero__heading"><span class="superhero__heading__number"># 3</span>Alternative content</h2>
+        <figure class="superhero superhero--left">
+          <img src="images/daredevil.png" alt="Daredevil, practicing">
+          <figcaption><p class="speech-bubble speech-bubble--right">Some people need <br/>to <b>perceive</b> things <br/><b>differently</b></p></figcaption>
+        </figure>
+      </section>
+
+      <section class="a11y--content">
+        <h3>Image descriptions</h3>
+        <pre class="bullet--highlight sample"><code>&lt;p <b>id="spiderman"</b>>Spider-Man's traditional
+  red and blue costume is woven with spider
+  web patterns.&lt;/p>
+
+&lt;p>.... &lt;/p>
+
+&lt;<b>img</b> src="spiderman.jpg"
+        <span class="bullet"><b>alt</b>="Spiderman in his red and blue suit"</span>
+        <span class="bullet"><b>aria-describedby</b>="spiderman"</span>/>
+</code></pre>
+      </section>
+
+      <section class="a11y--content">
+        <h3>Media overlays</h3>
+        <pre class="bullet--highlight sample"><code><span class="bullet">&lt;<b>smil</b> xmlns="http://www.w3.org/ns/SMIL" version="3.0"></span>
+  &lt;body>
+    <span class="bullet">&lt;<b>par</b> id="par1">
+  <span class="bullet">&lt;<b>text</b> src="chapter1.xhtml#sentence1"/></span>
+  <span class="bullet">&lt;<b>audio</b> src="chapter1_audio.mp3"
+       clipBegin="0s" clipEnd="10s"/></span>
+&lt;/<b>par</b>></span>
+    &lt;<b>par</b> id="par2">
+      &lt;<b>text</b> src="chapter1.xhtml#sentence2"/>
+      &lt;<b>audio</b> src="chapter1_audio.mp3"
+             clipBegin="10s" clipEnd="20s"/>
+    &lt;/<b>par</b>>
+    ...
+  &lt;/body>
+&lt;/<b>smil</b>>
+</code></pre>
+      </section>
+
+      <section class="a11y--content">
+        <h3>Media overlays – Demo</h3>
+        <video src="images/media-overlays.mp4" controls style="max-height: 80%"></video>
+      </section>
+
+     <section data-bespoke-backdrop="batman" class="superhero--content">
+        <h2 class="superhero__heading"><span class="superhero__heading__number"># 4</span>TTTS (theoretically, TTS)</h2>
+        <figure class="superhero superhero--left">
+          <img src="images/batman.png" alt="The Batman">
+          <figcaption style="margin-top: 30px;"><p class="speech-bubble speech-bubble--right">Nice try, Robin!</b>
+          </p></figcaption>
+        </figure>
+      </section>
+
+      <section class="slide--code  a11y--content">
+        <h3>PLS lexicons</h3>
+        <pre class="sample"><code>&lt;lexicon
+  alphabet="x-sampa"
+  xmlns=
+  "http://www.w3.org/2005/01/pronunciation-lexicon">
+  &lt;lexeme>
+    &lt;grapheme>defence&lt;/grapheme>
+    &lt;grapheme>defense&lt;/grapheme>
+    &lt;phoneme>dI'fEns&lt;/phoneme>
+    &lt;phoneme alphabet="ipa">dɪˈfɛns&lt;/phoneme>
+  &lt;/lexeme>
+&lt;/lexicon>
+</code></pre>
+        <pre class="sample"><code>&lt;item
+      id="pls"
+      href="EPUB/lexicon.pls"
+      media-type="application/pls+xml"/>
+</code></pre>
+      </section>
+
+      <section class="a11y--content">
+        <h3>SSML annotations</h3>
+        <pre class="sample" style="line-height: 1.4em;"><code>&lt;p>
+   The guitarist was playing a
+   <span class="highlight">&lt;span <b>ssml:ph="beIs"</b>>bass&lt;/span></span> that was shaped
+   like a <span class="highlight">&lt;span <b>ssml:ph="b&s"</b>>bass&lt;/span></span>.
+&lt;/p>        
+</code></pre>
+      </section>
+
+      <section data-bespoke-backdrop="manhattan" class="superhero--content">
+        <h2 class="superhero__heading"><span class="superhero__heading__number"># 4</span>Metadata</h2>
+        <figure class="superhero superhero--right">
+          <img src="images/dr-manhattan.png" alt="Dr Manhattan, thinking">
+          <figcaption style="margin-top: 20%; margin-left: 10%;"><p class="speech-bubble speech-bubble--left">Let me see through<br/>
+          the nature of it<br/><b>beforehand</b>!</p></figcaption>
+        </figure>
+      </section>
+
+      <section class="a11y--content">
+        <h3>Metadata records</h3>
+        <pre class="sample"><code>&lt;<b>package</b> … >
+  &lt;<b>metadata</b>>
+      … 
+      <span class="highlight">&lt;<b>link</b> rel="<b>onix-record</b>"
+      href="EPUB/meta/onix-9781234567890.xml"/></span>
+      …
+  &lt;/<b>metadata</b>> 
+    …
+&lt;/<b>package</b>>
+</code></pre>
+      </section>
+
+
+      <section>
+        <h2>Accessbility Metadata</h2>
+        <ul class="bullet list--unstyled">
+          <li><code>accessMode</code> <span class="mark">+</span> <i style="color: #888">(proposed)</i></li>
+          <li><code>accessibilityFeature</code> <span class="mark">+</span></li>
+          <li><code>accessibilityHazard</code> <span class="mark">+</span></li>
+          <li><code>accessibilitySummary</code> <i style="color: #888">(proposed)</i></li>
+          <li><code>accessModeSufficient</code> <span class="mark">*</span> <i style="color: #888">(proposed)</i></li>
+          <li><code>accessibilityAPI</code> <span class="mark">*</span> <i style="color: #888">(proposed)</i></li>
+          <li><code>accessibilityControl</code> <span class="mark">*</span> <i style="color: #888">(proposed)</i></li>
+        </ul>
+        <p class="bullet important" style="text-align: center"><span class="mark">+</span><br/><span style="color: #50514F;">linked external records</span></p>
+      </section>
+
+
+      <section data-bespoke-backdrop="wip" class="wip--content">
+        <h2>Accessibility<br/>work in progress</h2>
+      </section>
+
+      <section>
+        <h3>epubtest.org</h3>
+        <p><a class="url" href="http://epubtest.org/testsuite/accessibility/">http://epubtest.org/testsuite/accessibility/</a></p>
+        <img src="images/epubtest.png" alt="Screenshot of the epubtest.org website" height="50%">
+      </section>
+
+      <section>
+        <h3>W3C DPUB Accessibility Note</h3>
+        <p><a href="https://www.w3.org/TR/dpub-accessibility/">https://www.w3.org/TR/dpub-accessibility/</a></p>
+      </section>
+
+      <section>
+        <h3>EPUB Accessibility specification</h3>
+        <p class="url"><a href="https://docs.google.com/document/d/1U0ZyVwPCw0IOb0YM0HiPY-j3NH-SgzuGYO-yVnFwTl8/pub">http://www.idpf.org/epub/latest/accessibility</a> (ED)</p>
+        <ul class="bullet list--main">
+          <li class="bullet">evaluation and certification of accessible EPUB Publications</li>
+          <li class="bullet">discovery of the accessible qualities of EPUB Publications</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>EPUB Accessibility specification</h3>
+        <p>3 categories of conformance:</p>
+        <ul class="list--main">
+          <li>Discovery-enabled publications</li>
+          <li>Accessible publications</li>
+          <li>Optimized publications</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Conformance of Accessible publications</h3>
+        <ul class="list--main">
+          <li>WCAG A is a MUST, AA is a SHOULD</li>
+          <li>WCAG for each doc and for the publication</li>
+          <li><b>+</b> structured audio playback</li>
+          <li><b>+</b> page markers</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h3>EPUB Accessibility Techniques</h3>
+        <p class="url"><a href="https://docs.google.com/document/d/1RSPZKg8gQ9TG5rts8PovUoqHZEr_dfi6b0U7vFzA00g/pub">http://www.idpf.org/epub/latest/accessibility-techniques</a> (ED)</p>
+      </section>
+      
+
+      <section>
+        <h3>EPUB Accessibility Checker</h3>
+        <ul class="list--main">
+          <li>For publishers and service providers</li>
+          <li>For distributors and consumers</li>
+          <li>Open source, 2-year timeframe</li>
+        </ul>
+        <p class="url"><a href="https://github.com/daisy/epub-a11y-checker/wiki/Requirements">Requirements</a>open of comments!</p>
+      </section>
+
+      <section>
+        <h3>Resources</h3>
+        <ul class="list--unstyled list--multiline">
+          <li>EPUB accessibility guidelines: <a href="http://www.idpf.org/accessibility/guidelines/">http://www.idpf.org/accessibility/guidelines/</a></li>
+          <li>EPUB Accessibility specification (ED):<a href="https://docs.google.com/document/d/1U0ZyVwPCw0IOb0YM0HiPY-j3NH-SgzuGYO-yVnFwTl8/pub">http://www.idpf.org/epub/latest/accessibility</a></li>
+          <li>EPUB Accessibility Techniques (ED):<a href="https://docs.google.com/document/d/1RSPZKg8gQ9TG5rts8PovUoqHZEr_dfi6b0U7vFzA00g/pub">http://www.idpf.org/epub/latest/accessibility-techniques</a></li>
+          <li><a href="https://www.bisg.org/publications/bisg-quick-start-guide-accessible-publishing">BISG Quick Start Guide</a></li>
+          <li><a href="">http://inclusivepublishing.org/</a></li>
+        </ul>
+      </section>
+
+
+      <section   data-bespoke-backdrop="thanks" class="thanks--content">
+        <h2>Questions?</h2>
+        <p>@rdeltour</p>
+      </section>
+
+    </article>
+
+    <script src="build/build.js"></script>
+  </body>
+</html>

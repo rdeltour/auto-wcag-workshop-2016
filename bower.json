@@ -1,0 +1,7 @@
+{
+  "name": "presentation-epub-accessibility",
+  "version": "0.0.0",
+  "dependencies": {
+    "prism": "gh-pages"
+  }
+}
